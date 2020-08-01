@@ -39,4 +39,5 @@ RUN cd /usr/src/nginx-$NGINX_VERSION \
 # copy built modules to a new clean image
 FROM nginx:1.19.1-alpine
 
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /usr/src/nginx-$NGINX_VERSION/objs/ngx_http_brotli_*_module.so /usr/lib/nginx/modules/
